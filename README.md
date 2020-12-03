@@ -8,6 +8,8 @@ You can simply run the examples ``testing_analytical_replacement_false.py`` and 
 
 ![Image](testing.png)
 
+In addition, you can also run the files in ``excess_deaths'' to compute different mortality measures. (Make sure that you download the most recent source data, see below.)
+
 ## Related Data Sources
 
 * https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-states.csv
