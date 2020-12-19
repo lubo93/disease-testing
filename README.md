@@ -2,13 +2,14 @@
 
 ## Project Description
 
-This project enables users to generate random and biased testing distributions.
+This project enables users to analyze COVID-19 mortality data and generate random and biased (disease) testing distributions.
 
-You can simply run the examples ``testing_analytical_replacement_false.py`` and ``testing_analytical_replacement_true.py`` in the ``src`` folder and plot the generated results with ``testing_plot.py``. The resulting plot should look like this one:
+Please run the files in ``excess_deaths'' to compute different mortality measures and analyze COVID-19 mortality data for different jurisdiction. (Make sure that you download the most recent source data, see below.)
+
+To study the influence of different type I and II errors (or false-positive and false-negative rates) on disease testing distributions, you can use the examples ``testing_analytical_replacement_false.py`` and ``testing_analytical_replacement_true.py`` in the ``src`` folder and plot the generated results with ``testing_plot.py``. The resulting plot will be similar to the one shown below:
 
 ![Image](testing.png)
 
-In addition, you can also run the files in ``excess_deaths'' to compute different mortality measures. (Make sure that you download the most recent source data, see below.)
 
 ## Related Data Sources
 
