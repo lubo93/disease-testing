@@ -45,8 +45,8 @@ excess_death_dict_US = excess_deaths_US("Excess_Deaths_Associated_with_COVID-19.
 excess_death_dict_global = excess_deaths_global("../covid-19-excess-deaths-tracker/output-data/excess-deaths", threshold = 0)
 
 # covid data
-covid_data_US = pd.read_csv("us-states.csv.1")
-covid_data_global = pd.read_csv("10-29-2020.csv")
+covid_data_US = pd.read_csv("us-states.csv")
+covid_data_global = pd.read_csv("12-10-2020.csv")
 
 M_e_global = M_excess_global(covid_data_global, excess_death_dict_global)
 
