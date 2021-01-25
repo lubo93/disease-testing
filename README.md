@@ -16,3 +16,17 @@ To study the influence of different type I and II errors (or false-positive and 
 * https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-states.csv
 * https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports
 * https://github.com/TheEconomist/covid-19-excess-deaths-tracker
+
+## Reference
+* L. Böttcher, M. R. D'Orsogna, T. Chou, [Using excess deaths and testing statistics to improve estimates of COVID-19 mortalities](https://www.medrxiv.org/content/10.1101/2021.01.10.21249524v1.full), medRxiv:2021.01.10.21249524, arXiv:2101.03467
+
+Please cite our paper if you use our data analysis and disease testing frameworks.
+
+```
+@article{bottcher2021using,
+  title={Using excess deaths and testing statistics to improve estimates of COVID-19 mortalities},
+  author={B{\"o}ttcher, Lucas and D'Orsogna, Maria and Chou, Tom},
+  journal={arXiv preprint arXiv:2101.03467},
+  year={2021}
+}
+```
