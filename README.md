@@ -26,7 +26,7 @@ Please cite our paper if you use our data analysis and disease testing framework
 @article{bottcher2021using,
   title={Using excess deaths and testing statistics to improve estimates of COVID-19 mortalities},
   author={B{\"o}ttcher, Lucas and D'Orsogna, Maria and Chou, Tom},
-  journal={arXiv preprint arXiv:2101.03467},
+  journal={European Journal of Epidemiology},
   year={2021}
 }
 ```
