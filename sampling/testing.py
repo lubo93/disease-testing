@@ -1,6 +1,9 @@
 from numba import jit
 from sympy.functions.combinatorial.factorials import binomial
-from mpmath import hyp2f1, power, fsum, fprod, isnan
+from mpmath import hyp2f1, power, fsum, fprod, isnan, exp
+
+# testing bias function
+B = lambda b, f0: exp(b)/(1-f0+f0*exp(b))
 
 @jit
 def Ptrue(Qp, I, R, S, Q, b, replacement = True): 
@@ -21,14 +24,16 @@ def Ptrue(Qp, I, R, S, Q, b, replacement = True):
     """
         
     if replacement:
-        f = b * ( I + R ) / ( b * ( I + R ) + S/b )
+        f0 = ( I + R ) / ( S + I + R )
+        f = f0 * B(b,f0)
         
         Ptrue = binomial(Q, Qp) * power(f,Qp) * power(1-f,Q-Qp)
         
     else:
-        product_1 = [ 1/( b * ( I + R ) + S/b - n) for n in range(Q) ]
-        product_2 = [ b * ( I + R ) - k for k in range(Qp) ]
-        product_3 = [ S/b - l for l in range(Q-Qp) ]
+        f0 = ( I + R ) / ( S + I + R )
+        product_1 = [ 1/( S + I + R - n) for n in range(Q) ]
+        product_2 = [ ( I + R - k ) * B(b,f0) for k in range(Qp) ]
+        product_3 = [ S - l for l in range(Q-Qp) ]
         
         Ptrue = binomial(Q, Qp) * fprod(product_1) * fprod(product_2) * fprod(product_3)
     
