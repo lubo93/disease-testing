@@ -1,6 +1,6 @@
 from numba import jit
 from sympy.functions.combinatorial.factorials import binomial
-from mpmath import hyp2f1, power, fsum, fprod, isnan, exp
+from mpmath import hyp2f1, power, fsum, fprod, isnan, exp, sqrt, pi
 
 # testing bias function
 B = lambda b, f0: exp(b)/(1-f0+f0*exp(b))
@@ -25,18 +25,15 @@ def Ptrue(Qp, I, R, S, Q, b, replacement = True):
         
     if replacement:
         f0 = ( I + R ) / ( S + I + R )
-        f = f0 * B(b,f0)
-        
-        Ptrue = binomial(Q, Qp) * power(f,Qp) * power(1-f,Q-Qp)
+        Ptrue = binomial(Q,Qp) * power(f0*exp(b),Qp) * power(1-f0,Q-Qp)
+        Ptrue /= power(1+(exp(b)-1)*f0,Q)
         
     else:
-        f0 = ( I + R ) / ( S + I + R )
-        product_1 = [ 1/( S + I + R - n) for n in range(Q) ]
-        product_2 = [ ( I + R - k ) * B(b,f0) for k in range(Qp) ]
-        product_3 = [ S - l for l in range(Q-Qp) ]
+        product = [ ( I + R - k )/( S - Q + Qp - k ) for k in range(Qp) ]
         
-        Ptrue = binomial(Q, Qp) * fprod(product_1) * fprod(product_2) * fprod(product_3)
-    
+        Ptrue = binomial(Q, Qp) * fprod(product) * exp(Qp*b) * \
+                1/hyp2f1( -I - R, -Q, S - Q + 1, exp(b) )
+
     return Ptrue
 
 @jit
@@ -89,3 +86,34 @@ def Ptot(Qtildep, I, S, R, Q, b, FNR, FPR, replacement = True):
     
     print( "(Qtildep/Q,Ptot)=(%f,%f)"%(Qtildep/Q,Ptot) ) 
     return Ptot
+
+@jit
+def Ptot_approximation(Qtildep, I, S, R, Q, b, FNR, FPR):
+    """
+    Returns observed error-prone probability distribution.
+    
+    Args
+    ----
+    Qtildep (int): number of positive tests.    
+    Q (int): number of tests.
+    I (int): number of infecteds.
+    R (int): number of recovered.
+    S (int): number of suceptibles.
+    b (float): biased-testing factor.
+    FNR (float): false-negative fraction.
+    FPR (float): false-positive fraction.
+    
+    """
+    
+    P = lambda Qtildep, mu, sigma: exp(-(Qtildep-mu)**2/(2*sigma**2)) \
+                                   /(sigma*sqrt(2*pi))
+    
+    
+    f0 = ( I + R ) / ( S + I + R )
+    f = f0 * B(b,f0)
+    
+    mu = Q * ( f * ( 1 - FNR ) + ( 1 - f ) * FPR )
+    sigma = sqrt(mu * (1 -  ( f * ( 1 - FNR ) + ( 1 - f ) * FPR )))#sqrt( Q * ( 1 - f ) * FPR * ( 1 - FPR ) + \
+            #Q * f * FNR * ( 1 - FNR ) + Q * f * ( 1 - f ) * ( 1 - FNR -FPR ) )
+    
+    return P(Qtildep, mu, sigma)
