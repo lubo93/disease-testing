@@ -18,9 +18,10 @@ To study the influence of different type I and II errors (or false-positive and 
 * https://github.com/TheEconomist/covid-19-excess-deaths-tracker
 
 ## Reference
-* L. Böttcher, M. R. D'Orsogna, T. Chou, [Using excess deaths and testing statistics to improve estimates of COVID-19 mortalities](https://www.medrxiv.org/content/10.1101/2021.01.10.21249524v1.full), medRxiv:2021.01.10.21249524, arXiv:2101.03467
+* L. Böttcher, M. R. D'Orsogna, T. Chou, [Using excess deaths and testing statistics to improve estimates of COVID-19 mortalities](https://www.medrxiv.org/content/10.1101/2021.01.10.21249524v1.full), European Journal of Epidemiology (2021)
+* L. Böttcher, M. R. D'Orsogna, T. Chou, A statistical model of COVID-19 testing in populations: effects of sampling bias and testing errors, submitted to Philosophical Transactions of the Royal Society A
 
-Please cite our paper if you use our data analysis and disease testing frameworks.
+Please cite our works if you use our data analysis and disease testing frameworks.
 
 ```
 @article{bottcher2021using,
