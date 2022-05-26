@@ -19,7 +19,7 @@ To study the influence of different type I and II errors (or false-positive and 
 
 ## References
 * L. Böttcher, M. R. D'Orsogna, T. Chou, [Using excess deaths and testing statistics to determine estimates of COVID-19 mortalities](https://link.springer.com/article/10.1007/s10654-021-00748-2), European Journal of Epidemiology (2021)
-* L. Böttcher, M. R. D'Orsogna, T. Chou, [A statistical model of COVID-19 testing in populations: effects of sampling bias and testing errors](https://medrxiv.org/cgi/content/short/2021.05.22.21257643v1), to appear in Philosophical Transactions of the Royal Society A (2021)
+* L. Böttcher, M. R. D'Orsogna, T. Chou, [A statistical model of COVID-19 testing in populations: effects of sampling bias and testing errors](https://medrxiv.org/cgi/content/short/2021.05.22.21257643v1), Philosophical Transactions of the Royal Society A (2022)
 
 Please cite our works if you use our data analysis and disease testing frameworks.
 
@@ -28,12 +28,16 @@ Please cite our works if you use our data analysis and disease testing framework
   title={Using excess deaths and testing statistics to improve estimates of COVID-19 mortalities},
   author={B{\"o}ttcher, Lucas and D'Orsogna, Maria and Chou, Tom},
   journal={European Journal of Epidemiology},
+  volume={36},
+  pages={545--558},
   year={2021}
 }
 @article{bottcher2021statistical,
   title={A statistical model of COVID-19 testing in populations: effects of sampling bias and testing errors},
   author={B{\"o}ttcher, Lucas and D'Orsogna, Maria R and Chou, Tom},
   journal={Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences},
-  year={2021}
+  volume={380},
+  pages={20210121},
+  year={2022}
 }
 ```
